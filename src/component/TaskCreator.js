@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export const TaskCreator = () => {
-  const [newTaskName, setNewTaskName] = useState()
+export const TaskCreator = ({createNewTask }) => {
+  const [newTaskName, setNewTaskName] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("tasks", newTaskName);
+    createNewTask(newTaskName);
     setNewTaskName("");
   }
   return (
